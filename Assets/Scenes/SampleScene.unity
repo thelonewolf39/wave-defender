@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 808729530}
   m_Layer: 0
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -453,6 +453,7 @@ MonoBehaviour:
   turretRangeAtLevelTwo: 5
   turretFireCooldown: 0.5
   bulletSpeed: 10
+  health: 100
 --- !u!1 &949185974
 GameObject:
   m_ObjectHideFlags: 0

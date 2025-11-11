@@ -19,6 +19,8 @@ public class Turret : MonoBehaviour
     private float turretFireCooldown = 2f; // shots per second
     [SerializeField]
     private float bulletSpeed = 10f; // speed of the bullet
+    [SerializeField]
+    private int health = 100;
 
     private float nextAvailableActionTime;
 
@@ -78,5 +80,14 @@ public class Turret : MonoBehaviour
         var bulletInstance = Instantiate(bulletPrefab, ammoEntryPoint.position, ammoEntryPoint.rotation);
         Rigidbody2D rb = bulletInstance.GetComponent<Rigidbody2D>();
         rb.linearVelocity = transform.right * -bulletSpeed; // or any specific direction
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
