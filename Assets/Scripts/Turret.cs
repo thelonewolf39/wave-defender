@@ -16,9 +16,16 @@ public class Turret : MonoBehaviour
     [SerializeField]
     private float turretRangeAtLevelTwo = 5f; // current range of the turret
     [SerializeField]
-    private float turretFireRate = 1f; // shots per second
+    private float turretFireCooldown = 2f; // shots per second
     [SerializeField]
     private float bulletSpeed = 10f; // speed of the bullet
+
+    private float nextAvailableActionTime;
+
+    private void Start()
+    {
+        nextAvailableActionTime = Time.time;
+    }
 
     void Update()
     {
@@ -40,7 +47,7 @@ public class Turret : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Space))
         {
-            StartCoroutine(Shoot());
+            Shoot();
         }
     }
 
@@ -53,12 +60,23 @@ public class Turret : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, turretRangeAtLevelTwo);
     }
 
-    private IEnumerator Shoot()
+    private void Shoot()
+    {
+        if (Time.time >= nextAvailableActionTime)
+        {
+            nextAvailableActionTime = Time.time + turretFireCooldown;
+            FireBullet();
+        }
+        else
+        {
+            Debug.LogWarning("Turret is cooling down!");
+        }
+    }
+
+    private void FireBullet()
     {
         var bulletInstance = Instantiate(bulletPrefab, ammoEntryPoint.position, ammoEntryPoint.rotation);
         Rigidbody2D rb = bulletInstance.GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * bulletSpeed; // or any specific direction
-        yield return new WaitForSeconds(turretFireRate); // fire rate
+        rb.linearVelocity = transform.right * -bulletSpeed; // or any specific direction
     }
-
 }
