@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 77330089}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -621,6 +621,7 @@ MonoBehaviour:
   turretFireCooldown: 0.5
   bulletSpeed: 10
   health: 100
+  money: 0
 --- !u!50 &808729531
 Rigidbody2D:
   serializedVersion: 5
@@ -729,7 +730,7 @@ GameObject:
   - component: {fileID: 949185977}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

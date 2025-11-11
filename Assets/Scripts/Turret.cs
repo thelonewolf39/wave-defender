@@ -24,6 +24,9 @@ public class Turret : MonoBehaviour
 
     private float nextAvailableActionTime;
 
+    [HideInInspector]
+    public float money;
+
     private void Start()
     {
         nextAvailableActionTime = Time.time;
@@ -31,6 +34,7 @@ public class Turret : MonoBehaviour
 
     void Update()
     {
+
         // Get mouse position in world coordinates
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f; // ignore Z for 2D
@@ -51,6 +55,7 @@ public class Turret : MonoBehaviour
         {
             Shoot();
         }
+
     }
 
     private void OnDrawGizmos()

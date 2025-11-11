@@ -77,6 +77,8 @@ public class TurretAI2D : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        target.GetComponent<Turret>().money += 10;
+        Debug.Log($"Player money increased by 10! Current player money: {target.GetComponent<Turret>().money}.");
         Debug.Log($"Turret took {damage} damage, remaining health: {health}");
         if (health <= 0)
         {
