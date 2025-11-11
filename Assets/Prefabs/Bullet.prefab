@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5327558567685281638}
   - component: {fileID: 4436866353479125546}
   - component: {fileID: 1625294349561691337}
+  - component: {fileID: 4171422665351254877}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -156,3 +157,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &4171422665351254877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2985587937534654625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab78b9af5528c24698b82b74d58d7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  speed: 10
+  lifetime: 3

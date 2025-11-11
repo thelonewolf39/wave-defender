@@ -85,9 +85,15 @@ public class Turret : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Debug.Log($"Player took {damage} damage, remaining health: {health}");
         if (health <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        TakeDamage(1); // Assume each bullet does 1 damage
     }
 }
