@@ -11,10 +11,14 @@ public class EnemyWaveSpawner : MonoBehaviour
     public int enemiesPerWave = 5;
     public int incrementPerWave = 3;
     public float safeRadius = 2f;
+    [SerializeField]
+    private int timeBetweenWaves = 5;
 
     private Camera cam;
     private int currentWave = 1;
     private int aliveEnemies = 0;
+
+    private int currentTimeBetweenWave;
 
     void Start()
     {
@@ -26,6 +30,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     {
         while (true)
         {
+            currentTimeBetweenWave = timeBetweenWaves;
             SpawnWave();
 
             // Wait until all enemies are dead
@@ -39,7 +44,11 @@ public class EnemyWaveSpawner : MonoBehaviour
             enemiesPerWave += incrementPerWave;
 
             // Optional buffer time after wave finishes
-            yield return new WaitForSeconds(1f);
+            while (currentTimeBetweenWave > 0)
+            {
+                yield return new WaitForSeconds(1f);
+                currentTimeBetweenWave--;
+            }
         }
     }
 
@@ -88,5 +97,15 @@ public class EnemyWaveSpawner : MonoBehaviour
                                cam.transform.position.y + camHeight / 2f);
 
         return new Vector2(x, y);
+    }
+
+    public int GetCurrentTimeBetweenWave()
+    {
+        return currentTimeBetweenWave;
+    }
+
+    public int GetUserDefinedTimeBetweenWaves()
+    {
+        return timeBetweenWaves;
     }
 }

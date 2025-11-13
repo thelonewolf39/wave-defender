@@ -5225,6 +5225,7 @@ MonoBehaviour:
   enemiesPerWave: 5
   incrementPerWave: 3
   safeRadius: 2
+  timeBetweenWaves: 5
 --- !u!1 &742759062
 GameObject:
   m_ObjectHideFlags: 0
@@ -6208,7 +6209,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CanvasManager
   moneyText: {fileID: 1231254969}
   timeText: {fileID: 742759064}
+  healthText: {fileID: 777091888}
   player: {fileID: 808729529}
+  gameManager: {fileID: 657625556}
 --- !u!1001 &2527738809815021638
 PrefabInstance:
   m_ObjectHideFlags: 0
