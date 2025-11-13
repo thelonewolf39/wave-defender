@@ -97,8 +97,8 @@ public class Turret : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public int GetHealth()
     {
-        TakeDamage(1); // Assume each bullet does 1 damage
+        return health;
     }
 }
